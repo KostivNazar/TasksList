@@ -39,6 +39,7 @@ func addAlertForNewItem(title: String, message: String, placeholder: String,titl
 //    }
 
    // self.tableView.reloadData()
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)	
   }
 
   let cancelAction = UIAlertAction(title: titleCancelingAction, style: styleCancelingAction, handler: nil)
@@ -48,5 +49,8 @@ func addAlertForNewItem(title: String, message: String, placeholder: String,titl
 
   rootViewController?.present(alert, animated: true, completion: nil)
 }
+
+
+
 
 

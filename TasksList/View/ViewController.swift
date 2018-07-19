@@ -24,8 +24,12 @@ class ViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     items = realm.objects(TasksList.self)
+    NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
   }
 
+  @objc func loadList(notification: NSNotification){
+    self.tableView.reloadData()
+  }
 
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
